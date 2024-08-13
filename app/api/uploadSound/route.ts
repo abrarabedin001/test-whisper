@@ -2,11 +2,6 @@ import { uploadFile2 } from '@/lib/firebase/firestore/firebaseSDK';
 import { NextRequest, NextResponse } from 'next/server';
 
 
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
 
 export async function POST(request: NextRequest) {
 
