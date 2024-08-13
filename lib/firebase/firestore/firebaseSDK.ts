@@ -31,7 +31,7 @@ export async function whisper(jobId: string, status: string, output: any, messag
     await whisperRef.set({ jobId, status, output, updatedAt: new Date(), message })
 
     const re2f = db.collection("experiment").doc("1");
-    await re2f.set({ jobId, status, output, updatedAt: new Date(), message, endTime: new Date() });
+    await re2f.update({ jobId, status, output, updatedAt: new Date(), message, endTime: new Date() });
     // await updateDoc(re2f, {
     //   endTime: new Date(),
     //   jobId, status, output, updatedAt: new Date(), message
