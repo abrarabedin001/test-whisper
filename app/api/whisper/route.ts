@@ -1,4 +1,5 @@
-import { whisper } from '@/app/lib/firebase/firestore/firebaseSDK'
+
+import { whisper } from '@/lib/firebase/firestore/firebaseSDK'
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function POST(request: NextRequest) {
