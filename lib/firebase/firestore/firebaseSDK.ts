@@ -30,11 +30,12 @@ export async function whisper(jobId: string, status: string, output: any, messag
     const whisperRef = db.collection('whispers').doc(jobId ?? "trying")
     await whisperRef.set({ jobId, status, output, updatedAt: new Date(), message })
 
-    const re2f = doc(db2, "experiment", "1");
-    await updateDoc(re2f, {
-      endTime: new Date(),
-      jobId, status, output, updatedAt: new Date(), message
-    });
+    const re2f = db.collection("experiment").doc("1");
+    await re2f.set({ jobId, status, output, updatedAt: new Date(), message, endTime: new Date() });
+    // await updateDoc(re2f, {
+    //   endTime: new Date(),
+    //   jobId, status, output, updatedAt: new Date(), message
+    // });
     console.log('Whisper sent successfully.')
   } catch (error) {
     console.error('Error in updating daily tracking:', error)
