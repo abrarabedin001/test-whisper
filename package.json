@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@deepgram/sdk": "^3.5.1",
     "@types/formidable": "^3.4.5",
     "firebase": "^10.12.5",
     "firebase-admin": "^12.3.1",
