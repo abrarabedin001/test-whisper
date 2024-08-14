@@ -31,11 +31,8 @@ export async function whisper(jobId: string, status: string, output: any, messag
     await whisperRef.set({ jobId, status, output, updatedAt: new Date(), message })
 
     const re2f = db.collection("experiment").doc("1");
-    await re2f.update({ jobId, status, output, updatedAt: new Date(), message, endTime: new Date() });
-    // await updateDoc(re2f, {
-    //   endTime: new Date(),
-    //   jobId, status, output, updatedAt: new Date(), message
-    // });
+    await re2f.update({ jobId, status, output, message, endTime: new Date() });
+ 
     console.log('Whisper sent successfully.')
   } catch (error) {
     console.error('Error in updating daily tracking:', error)
@@ -58,7 +55,7 @@ export async function uploadFile2(file: any) {
 
     const snapshot = await uploadBytes(storageRef, file).then((snapshot) => {
       console.log('Uploaded an array!');
-      console.log(snapshot);
+    
     });
 
     const downloadURL = await getDownloadURL(storageRef);
@@ -100,6 +97,7 @@ export async function uploadFile2(file: any) {
 
     await updateDoc(re2f, {
       result: result,
+      midTime: new Date(),
     });
 
 
