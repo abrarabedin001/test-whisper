@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "ngrok": "ngrok http http://localhost:3000"
   },
   "dependencies": {
     "@deepgram/sdk": "^3.5.1",
@@ -15,6 +16,7 @@
     "firebase-admin": "^12.3.1",
     "formidable": "^3.5.1",
     "next": "14.2.5",
+    "openai": "^4.55.9",
     "react": "^18",
     "react-dom": "^18",
     "uuid": "^10.0.0"

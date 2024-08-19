@@ -5,6 +5,7 @@ import {
 } from 'firebase/auth';
 
 import { getFirestore, doc, getDoc } from 'firebase/firestore'
+import { deleteObject, ref } from 'firebase/storage';
 
 export const db = getFirestore(firebase_app)
 export const auth = getAuth(firebase_app);
@@ -37,3 +38,4 @@ export async function queryFoundOutField(userId: string) {
     return false;
   }
 }
+
